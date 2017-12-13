@@ -18,12 +18,14 @@
     	unsplashRequest.open('GET', `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`, true);
 		unsplashRequest.onload = addImage;
 		unsplashRequest.setRequestHeader('Authorization','Client-ID fd8c0935e8c3843b1a04d514d991c7a32c5d1e269ca397ea15c3980e736cef28');
+		unsplashRequest.onerror = (err) => {};
 		unsplashRequest.send();
     }
     function nyctimesReq(){
 	    articleRequest.onload = addArticles;
 		articleRequest.open('GET', `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=3e5738c5aaa843a191f8179185a998e1`);
 		articleRequest.onload = addArticles;
+		articleRequest.onerror = (err) => {};
 		articleRequest.send();
     }
 
